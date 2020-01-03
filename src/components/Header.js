@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css'
-const Header = () => {
+const Header = ({onRequestAPI}) => {
     return(
         <div>
         <h1 id='Masthead'>Stub Genesis</h1>

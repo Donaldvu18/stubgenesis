@@ -1,0 +1,8 @@
+.EventItem{
+    font-size:1rem;
+}
+
+.eventrow:hover{
+color:blue;
+font-weight:500;
+}
