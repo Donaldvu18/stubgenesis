@@ -6,6 +6,7 @@ import EventList from './EventList.js';
 import SearchForm from './SearchForm.js';
 import SelectedEvents from './SelectedEvents.js';
 import Comparison from './Comparison.js';
+import dateFormat from 'dateformat';
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
@@ -21,10 +22,11 @@ class App extends React.Component{
       }
 
   onRequestAPI= async(term) =>{
-    const startDate= term.dateStart? term.dateStart+'T00:00 TO ': today +'T00:00 TO '
-    const endDate= term.dateEnd ? term.dateEnd+'T23:59' : today+'T23:59'
+ 
+    const startDate= term.dateStart ? dateFormat(term.dateStart,'yyyy-mm-dd')+'T00:00 TO ': today +'T00:00 TO '
+    const endDate= term.dateEnd ? dateFormat(term.dateEnd,'yyyy-mm-dd')+'T23:59': today+'T23:59'
     const city= term.city ? term.city : 'Los Angeles'
-
+ 
     const response = await stubhub.get('/sellers/search/events/v3',{
       params:{
         q: term.q,
@@ -39,7 +41,6 @@ class App extends React.Component{
         Accept:'application/json'
     }
     });
-    console.log(response);
     this.setState({events:response.data.events})
   }
 
@@ -72,6 +73,7 @@ class App extends React.Component{
     <div className="App container">
         {/* <h1 onClick={() => this.onRequestAPI()}>Activate</h1> */}
         <Header/>
+        
         <SearchForm onRequestAPI={this.onRequestAPI}/>
         <br/>
         {this.state.selected.length>0 ? <SelectedEvents onComparison={this.onComparison} resetSelected={this.resetSelected} comparison={this.state.comparison} removeEvent={this.removeEvent} selected={this.state.selected} /> : null}

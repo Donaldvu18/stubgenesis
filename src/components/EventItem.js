@@ -1,7 +1,8 @@
 import React from 'react';
 import './EventItem.css';
 
-const EventItem = ({event,selectEvent}) =>{
+const EventItem = ({event,selectEvent,expandEvent}) =>{
+
     return(
 
             <tr className='eventrow' onClick={()=> selectEvent(event)} >

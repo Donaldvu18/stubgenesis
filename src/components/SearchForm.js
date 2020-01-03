@@ -1,6 +1,6 @@
 import React from 'react';
-
-
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 class SearchForm extends React.Component{
     
@@ -18,10 +18,10 @@ class SearchForm extends React.Component{
         this.setState({city:event.target.value});
     }
     handleChange_dateStart = (event) => {
-        this.setState({dateStart:event.target.value});
+        this.setState({dateStart:event});
     }
     handleChange_dateEnd = (event) => {
-        this.setState({dateEnd:event.target.value});
+        this.setState({dateEnd:event});
     }
     handleSubmit = (event) => {
         event.preventDefault();
@@ -32,11 +32,11 @@ class SearchForm extends React.Component{
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div class='form-group row'>
-                        <label for='Keyword' className='col-sm-2 col-form-label col-form-label-sm'>
-                            Keyword:
+                        <label for='Category' className='col-sm-2 col-form-label col-form-label-sm'>
+                            Category:
                         </label>
                         <div>
-                            <input type='text' class='form-control form-control-sm' placeholder='Keyword to Search by' id='Keyword' value={this.state.q} onChange={this.handleChange_q}/>
+                            <input type='text' class='form-control form-control-sm' placeholder='ex: "sports", "musicals"' id='Category' value={this.state.q} onChange={this.handleChange_q}/>
                         </div>
                     </div>
                     <div class='form-group row'>
@@ -52,7 +52,7 @@ class SearchForm extends React.Component{
                             Start Date:
                         </label>
                         <div>
-                            <input type='text' class='form-control form-control-sm' placeholder='YYYY-MM-DD' id='dateStart' value={this.state.dateStart} onChange={this.handleChange_dateStart}/>
+                            <DatePicker placeholderText=' MM/DD/YYYY' selected={this.state.dateStart} onChange={this.handleChange_dateStart}/>
                         </div>
                     </div>
                     <div class='form-group row'>
@@ -60,7 +60,7 @@ class SearchForm extends React.Component{
                             End Date:
                         </label>
                         <div>
-                            <input type='text' class='form-control form-control-sm' placeholder='YYYY-MM-DD' id='dateEnd' value={this.state.dateEnd} onChange={this.handleChange_dateEnd}/>
+                        <DatePicker placeholderText=' MM/DD/YYYY' selected={this.state.dateEnd} onChange={this.handleChange_dateEnd}/>
                         </div>
                     </div>
                     <input type='submit' value='Submit'/>
