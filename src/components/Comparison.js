@@ -20,7 +20,8 @@ const Comparison = ({selected}) =>{
                             <li>{event1.ticketInfo.totalListings}</li>
                         </ul>
                     </div>
-                    <div className='col-4 text-center'>
+                    <div id='metrics'
+                     className='col-4 text-center'>
                         <ul>
                             <li>Event Title</li>
                             <li>Event Date</li>

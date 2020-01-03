@@ -1,7 +1,7 @@
 import React from 'react';
 import './SelectedEvent.css';
 
-const SelectedEvents = ({selected,removeEvent,onComparison}) => {
+const SelectedEvents = ({selected,removeEvent,onComparison,comparison,resetSelected}) => {
     const renderedList=selected.map(event=>{
         return(
             <tr onClick={()=>removeEvent(event)} className='selectedrow'>
@@ -29,8 +29,8 @@ const SelectedEvents = ({selected,removeEvent,onComparison}) => {
                     {renderedList}
                 </tbody>
             </table>
-            {selected.length===2 ? (<button onClick={()=>onComparison()} type="button" class="btn btn-secondary btn-lg">Compare Events</button>): null}
-            
+            {selected.length===2 ? (<button onClick={()=>onComparison()} type="button" class="btn btn-secondary">Compare Events</button>): null}
+            {comparison ? (<button id='clearbutton' onClick={()=>resetSelected()} type="button" class="btn btn-outline-danger">Clear Results</button>): null}
         </div>
     )
 

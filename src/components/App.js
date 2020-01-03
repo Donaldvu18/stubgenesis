@@ -39,6 +39,7 @@ class App extends React.Component{
         Accept:'application/json'
     }
     });
+    console.log(response);
     this.setState({events:response.data.events})
   }
 
@@ -61,6 +62,11 @@ class App extends React.Component{
   onComparison = () =>{
     this.setState({comparison:!this.state.comparison})
   }
+
+  resetSelected = () =>{
+    this.setState({selected:[]})
+    this.setState({comparison:!this.state.comparison})
+  }
   render(){
   return (
     <div className="App container">
@@ -68,7 +74,7 @@ class App extends React.Component{
         <Header/>
         <SearchForm onRequestAPI={this.onRequestAPI}/>
         <br/>
-        {this.state.selected.length>0 ? <SelectedEvents onComparison={this.onComparison} removeEvent={this.removeEvent} selected={this.state.selected} /> : null}
+        {this.state.selected.length>0 ? <SelectedEvents onComparison={this.onComparison} resetSelected={this.resetSelected} comparison={this.state.comparison} removeEvent={this.removeEvent} selected={this.state.selected} /> : null}
         <br/>
         {this.state.comparison===true & this.state.selected.length===2 ? <Comparison selected={this.state.selected}/> :null}
         <EventList events={this.state.events} selectEvent={this.selectEvent}/>

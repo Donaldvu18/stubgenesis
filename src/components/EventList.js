@@ -11,6 +11,7 @@ const EventList = ({events,selectEvent}) =>{
                 <thead className='thead-dark'>
                     <tr>
                     <th scope='col'>Event</th>
+                    <th scope='col'>Event Type</th>
                     <th scope='col'>Venue</th>
                     <th scope='col-3'>Date</th>
                     </tr>
