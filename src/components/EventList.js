@@ -1,9 +1,9 @@
 import React from 'react';
 import EventItem from './EventItem';
 
-const EventList = ({events}) =>{
+const EventList = ({events,selectEvent}) =>{
     const renderedList=events.map(event=>{
-        return <EventItem key={event.id} event={event}/>;
+        return <EventItem key={event.id} selectEvent={selectEvent} event={event}/>;
     })
     return(
         <div>

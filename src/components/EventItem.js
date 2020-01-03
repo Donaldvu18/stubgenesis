@@ -1,14 +1,13 @@
 import React from 'react';
 import './EventItem.css';
 
-const EventItem = ({event}) =>{
-    const pars=event.eventDateLocal.substring(0,10);
+const EventItem = ({event,selectEvent}) =>{
     return(
 
-            <tr className='eventrow'>
+            <tr className='eventrow' onClick={()=> selectEvent(event)} >
             <td>{event.name}</td>
             <td>{event.venue.name}</td>
-            <td>{pars}</td>
+            <td>{event.eventDateLocal.substring(0,10)}</td>
 
           </tr>
     )

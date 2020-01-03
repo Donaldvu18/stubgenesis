@@ -65,7 +65,7 @@ class SearchForm extends React.Component{
                     </div>
                     <input type='submit' value='Submit'/>
                 </form>
-                <br/>
+               
             </div>
         )
     }

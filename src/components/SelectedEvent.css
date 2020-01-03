@@ -1,0 +1,15 @@
+.thead-yellow {
+    background-color:rgba(82, 82, 68, 0.438);
+}
+
+.thead-green {
+    background-color:rgba(72, 228, 85, 0.74);
+}
+
+h3{
+    font-size:1.5rem;
+}
+
+.selectedrow{
+    cursor: pointer;
+}
