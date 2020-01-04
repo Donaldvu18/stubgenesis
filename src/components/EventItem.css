@@ -1,9 +1,25 @@
 .EventItem{
     font-size:1rem;
+};
+
+.eventrow{
+background-color:rgb(97, 93, 93);
+
 }
 
-/* .eventrow:hover{
-color:blue;
-font-weight:500;
-cursor: pointer;
-} */
+.eventrow:hover{
+
+    
+    cursor: pointer; 
+    }
+.eventrowid:hover{
+    font-weight:500;
+}
+#expanddetails {
+background-color:lightgray;
+margin-left:3rem;
+};
+
+
+
+/* .clearBoth { clear:both; } */

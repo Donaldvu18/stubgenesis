@@ -20,7 +20,10 @@ class App extends React.Component{
         selected:[],
         comparison:false
       }
-
+  
+  // componentDidMount(){
+  //   this.onRequestAPI({});
+  // };
   onRequestAPI= async(term) =>{
  
     const startDate= term.dateStart ? dateFormat(term.dateStart,'yyyy-mm-dd')+'T00:00 TO ': today +'T00:00 TO '
@@ -45,8 +48,14 @@ class App extends React.Component{
   }
 
   selectEvent = (event) => {
+    if (this.state.selected.indexOf(event)===-1){
     this.setState({selected:[...this.state.selected,event]})
+  }else{
+    let array = [...this.state.selected]; // make a separate copy of the array
+    const newarray=array.filter(selected=>selected.id!==event.id)
+    this.setState({selected:newarray})
   }
+}
 
   removeEvent= (event) => {
       let array = [...this.state.selected]; // make a separate copy of the array
@@ -76,10 +85,10 @@ class App extends React.Component{
         
         <SearchForm onRequestAPI={this.onRequestAPI}/>
         <br/>
-        {this.state.selected.length>0 ? <SelectedEvents onComparison={this.onComparison} resetSelected={this.resetSelected} comparison={this.state.comparison} removeEvent={this.removeEvent} selected={this.state.selected} /> : null}
+        {/* {this.state.selected.length>0 ? <SelectedEvents onComparison={this.onComparison} resetSelected={this.resetSelected} comparison={this.state.comparison} removeEvent={this.removeEvent} selected={this.state.selected} /> : null} */}
         <br/>
         {this.state.comparison===true & this.state.selected.length===2 ? <Comparison selected={this.state.selected}/> :null}
-        <EventList events={this.state.events} selectEvent={this.selectEvent}/>
+        <EventList events={this.state.events} selected={this.state.selected} selectEvent={this.selectEvent}/>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import EventItem from './EventItem';
 
-const EventList = ({events,selectEvent}) =>{
+const EventList = ({events,selectEvent,selected}) =>{
     const renderedList=events.map(event=>{
-        return <EventItem key={event.id} selectEvent={selectEvent} event={event}/>;
+        return <EventItem key={event.id} selected={selected} selectEvent={selectEvent} event={event}/>;
     })
     return(
         <div>
-            <table className='table table-striped'>
+            <table className='table table-hover'>
                 <thead className='thead-dark'>
                     <tr>
                     <th scope='col'>Event</th>
