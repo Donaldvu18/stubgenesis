@@ -29,7 +29,7 @@ class App extends React.Component{
     const startDate= term.dateStart ? dateFormat(term.dateStart,'yyyy-mm-dd')+'T00:00 TO ': today +'T00:00 TO '
     const endDate= term.dateEnd ? dateFormat(term.dateEnd,'yyyy-mm-dd')+'T23:59': today+'T23:59'
     const city= term.city ? term.city : 'Los Angeles'
- 
+
     const response = await stubhub.get('/sellers/search/events/v3',{
       params:{
         q: term.q,

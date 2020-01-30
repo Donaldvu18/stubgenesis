@@ -7,10 +7,10 @@ const EventItem = ({event,selectEvent,expandEvent,selected}) =>{
         return(cats.name)})
     renderedcat=renderedcat.join(', ')
     
-    let renderedperf=event.performers.map(perf=>{
-        return(perf.name)})
-    renderedperf=renderedperf.join(', ')
-
+    // let renderedperf=event.performers.map(perf=>{
+    //     return(perf.name)})
+    // renderedperf=renderedperf.join(', ')
+    // renderedperf= renderedperf.length==0 ?'NA': renderedperf
     const eventStyle={
         backgroundColor:"lightgray",
         marginLeft:'5rem',
@@ -33,7 +33,7 @@ const EventItem = ({event,selectEvent,expandEvent,selected}) =>{
             <Expand open={selected.indexOf(event)!==-1} close={selected.indexOf(event)===-1}>
                     <div style={{marginLeft:"1rem",fontSize:'1rem'}}>
                         <p className='mt-2'>Categories: {renderedcat}</p>
-                        <p>Performers: {renderedperf}</p>
+                        {/* <p>Performers: {renderedperf}</p> */}
                         <p>Price Range: {pricerange}</p>
                         <p>Number of Tickets: {event.ticketInfo.totalTickets}</p>
                         <p>Number of Listings: {event.ticketInfo.totalListings}</p>
